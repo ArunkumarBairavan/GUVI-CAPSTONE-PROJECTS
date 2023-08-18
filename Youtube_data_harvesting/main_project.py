@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from PIL import Image
 
 # SETTING PAGE CONFIGURATIONS
-icon = Image.open("C:\\Users\\arunk\\OneDrive\\Desktop\\Youtube_logo.png")
+icon = Image.open(Youtube_data_harvesting/Youtube_logo.png)
 st.set_page_config(page_title= "Youtube Data Harvesting and Warehousing | By Arunkumar Bairavan",
                    page_icon= icon,
                    layout= "wide",
