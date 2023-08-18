@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from PIL import Image
 
 # SETTING PAGE CONFIGURATIONS
-icon = Image.open(Youtube_data_harvesting/Youtube_logo.png)
+icon = Image.open("Youtube_data_harvesting/Youtube_logo.png")
 st.set_page_config(page_title= "Youtube Data Harvesting and Warehousing | By Arunkumar Bairavan",
                    page_icon= icon,
                    layout= "wide",
@@ -156,7 +156,7 @@ def channel_names():
 # HOME PAGE
 if selected == "Home":
     # Title Image
-    st.image("C:\\Users\\arunk\\OneDrive\\Desktop\\title.png")
+    st.image("Youtube_data_harvesting/title.png")
     col1,col2 = st.columns(2,gap= 'medium')
     col1.markdown("## :blue[Domain] : Social Media")
     col1.markdown("## :blue[Technologies used] : Python,MongoDB, Youtube Data API, MySql, Streamlit")
