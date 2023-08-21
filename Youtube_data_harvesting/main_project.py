@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from PIL import Image
 
 # SETTING PAGE CONFIGURATIONS
-icon = Image.open("Youtube_data_harvesting/Youtube_logo.png")
+icon = Image.open("C:\\Users\\arunk\\OneDrive\\Desktop\\Youtube_logo.png")
 st.set_page_config(page_title= "Youtube Data Harvesting and Warehousing | By Arunkumar Bairavan",
                    page_icon= icon,
                    layout= "wide",
@@ -68,7 +68,7 @@ def get_channel_details(channel_id):
 def get_channel_videos(channel_id):
     video_ids = []
     # get Uploads playlist id
-    res = youtube.channel().list(id=channel_id, 
+    res = youtube.channels().list(id=channel_id, 
                                   part='contentDetails').execute()
     playlist_id = res['items'][0]['contentDetails']['relatedPlaylists']['uploads']
     next_page_token = None
@@ -156,7 +156,7 @@ def channel_names():
 # HOME PAGE
 if selected == "Home":
     # Title Image
-    st.image("Youtube_data_harvesting/title.png")
+    st.image("C:\\Users\\arunk\\OneDrive\\Desktop\\title.png")
     col1,col2 = st.columns(2,gap= 'medium')
     col1.markdown("## :blue[Domain] : Social Media")
     col1.markdown("## :blue[Technologies used] : Python,MongoDB, Youtube Data API, MySql, Streamlit")
@@ -216,7 +216,7 @@ if selected == "Extract & Transform":
                     collections = db.channel_details
                     query = """INSERT INTO channels VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"""
                 
-                    for i in collections.find({"Channel_name" : user_inp},{'_id' : 0}):
+                    for i in collections.find({"channel_name" : user_inp},{'_id' : 0}):
                         mycursor.execute(query,tuple(i.values()))
                     mydb.commit()
                 
@@ -224,7 +224,7 @@ if selected == "Extract & Transform":
             collections1 = db.video_details
             query1 = """INSERT INTO videos VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
-            for i in collections1.find({"Channel_name" : user_inp},{'_id' : 0}):
+            for i in collections1.find({"channel_name" : user_inp},{'_id' : 0}):
                 values = [str(val).replace("'", "''").replace('"', '""') if isinstance(val, str) else val for val in i.values()]
                 mycursor.execute(query1, tuple(values))
                 mydb.commit()
@@ -234,7 +234,7 @@ if selected == "Extract & Transform":
             collections2 = db.comments_details
             query2 = """INSERT INTO comments VALUES(%s,%s,%s,%s,%s,%s,%s)"""
 
-            for vid in collections1.find({"Channel_name" : user_inp},{'_id' : 0}):
+            for vid in collections1.find({"channel_name" : user_inp},{'_id' : 0}):
                 for i in collections2.find({'Video_id': vid['Video_id']},{'_id' : 0}):
                     mycursor.execute(query2,tuple(i.values()))
                     mydb.commit()
@@ -378,7 +378,7 @@ if selected == "View":
         st.plotly_chart(fig,use_container_width=True)
         
     elif questions == '10. Which videos have the highest number of comments, and what are their corresponding channel names?':
-        mycursor.execute("""SELECT channel_name AS Channel_Name,video_id AS Video_ID,Comment_count AS Comments
+        mycursor.execute("""SELECT channel_name AS Channel_Name,Video_id AS Video_ID,Comment_count AS Comments
                             FROM videos
                             ORDER BY comments DESC
                             LIMIT 10""")
