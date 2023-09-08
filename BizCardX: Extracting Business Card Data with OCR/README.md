@@ -57,4 +57,4 @@ DOMAIN : DATA SCIENCE
 
 DEMO VIDEO URL: https://youtu.be/zgdxZNvi1OE
 
-LINKED IN URL :
+LINKED IN URL : https://www.linkedin.com/feed/update/urn:li:activity:7105845260295041024/
