@@ -47,3 +47,14 @@ The classified data is displayed on screen which can be further edited by user b
 On Clicking Upload to Database Button the data gets stored in the MySQL Database. (Note: Provide respective host, user, password, database name in create_database, sql_table_creation and connect_database for establishing connection.)
 
 Further with the help of MODIFY menu the uploaded data’s in SQL Database can be accessed for Read, Update and Delete Operations.
+
+
+NAME : ARUNKUMAR BAIRAVAN
+
+BATCH: DW60DW61
+
+DOMAIN : DATA SCIENCE
+
+DEMO VIDEO URL: https://youtu.be/zgdxZNvi1OE
+
+LINKED IN URL :
